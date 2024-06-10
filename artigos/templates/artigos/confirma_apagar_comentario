@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}Confirmar Exclusão de Comentário{% endblock %}
+
+{% block content %}
+<h2>Tem certeza que deseja excluir este comentário?</h2>
+<p><strong>Autor:</strong> {{ comentario.autor }}</p>
+<p><strong>Comentário:</strong> {{ comentario.conteudo }}</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <button type="submit">Sim, excluir</button>
+    <a href="{% url 'artigos:artigo' comentario.artigo.id %}">Cancelar</a>
+</form>
+{% endblock %}

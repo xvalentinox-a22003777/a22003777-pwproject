@@ -1,0 +1,18 @@
+{% extends 'meteo/layout.html' %}
+
+{% block content %}
+<h1>Previsão para os Próximos 5 Dias</h1>
+<div class="forecast-days-container">
+    {% for forecast in forecasts %}
+    <div class="forecast-day">
+        <h2>{{ forecast.forecastDate }}</h2>
+        <p><strong>Min:</strong> {{ forecast.tMin }}°C</p>
+        <p><strong>Max:</strong> {{ forecast.tMax }}°C</p>
+        <p><strong>Descrição:</strong> {{ forecast.weather_description }}</p>
+        <img src="/static/meteo/icons/w_ic_d_{{ forecast.idWeatherType|stringformat:"02d" }}anim.svg" alt="{{ forecast.weather_description }}">
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+

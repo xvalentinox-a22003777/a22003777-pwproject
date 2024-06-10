@@ -1,0 +1,64 @@
+{% extends 'curso/layout.html' %}
+
+{% block content %}
+<div class="disciplina-detail">
+    <h2>{{ disciplina.nome }}</h2>
+
+    <div>
+        <h3 class="section-title">Ano:</h3>
+        <p>{{ disciplina.ano }}</p>
+    </div>
+
+    <div>
+        <h3 class="section-title">ECTS:</h3>
+        <p>{{ disciplina.ects }}</p>
+    </div>
+
+    <div>
+        <h3 class="section-title">Código:</h3>
+        <p>{{ disciplina.curricularIUnitReadableCode }}</p>
+    </div>
+
+    <div>
+        <h3 class="section-title">Área Científica:</h3>
+        <p>{{ disciplina.area_cientifica.nome }}</p>
+    </div>
+
+    <div>
+        <h3 class="section-title">Projetos</h3>
+        {% if projetos %}
+            <ul>
+                {% for projeto in projetos %}
+                    <li><a href="{% url 'curso:projeto' projeto.id %}">{{ projeto.nome }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Não há projetos associados a esta disciplina.</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <h3 class="section-title">Linguagens de Programação</h3>
+        {% if linguagens %}
+            <ul>
+                {% for linguagem in linguagens %}
+                    <li>{{ linguagem.nome }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Não há linguagens de programação associadas a esta disciplina.</p>
+        {% endif %}
+    </div>
+    {% if perms.curso.change_disciplina %}
+    <a href="{% url 'curso:edita_disciplina' disciplina.id %}">
+        <button>Editar Disciplina</button>
+    </a>
+    {% endif %}
+    {% if perms.curso.delete_disciplina %}
+    <form action="{% url 'curso:apaga_disciplina' disciplina.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" onclick="return confirm('Tem certeza que deseja apagar esta disciplina?');">Apagar Disciplina</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Curiosidades sobre Animais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        .box img {
+            max-width: 100%;
+            height: auto;
+            margin: 0 0 20px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+
+    <nav>
+        <a href="{% url 'novaapp:index' %}">Introducao</a>
+        <a href="{% url 'novaapp:info' %}">Info</a>
+        <a href="{% url 'novaapp:contacto' %}">Contacto</a>
+    </nav>
+</head>
+<body>
+    <div class="container">
+        <h1>Curiosidades sobre Animais</h1>
+
+        <div class="box">
+            <h2>Gato</h2>
+            <img src="https://cdn.britannica.com/44/186844-050-091E4372/Scottish-fold-cat.jpg" alt="Gato">
+            <p>Os gatos domésticos passam cerca de 70% de suas vidas dormindo. Isso significa que um gato de 9 anos passou 6 anos da sua vida dormindo.</p>
+        </div>
+
+        <div class="box">
+            <h2>Cão</h2>
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.e-konomista.pt%2Fuploads%2F2018%2F09%2Fcao-a-correr.jpg&f=1&nofb=1&ipt=2280d1580392f3e002b7c3a7edecbb64fc5ee89f7f7a4b42f0d669972146085d&ipo=images" alt="Cão">
+            <p>O nariz de um cão é único, assim como uma impressão digital de um humano, e pode ser usado para identificá-los de forma eficaz.</p>
+        </div>
+
+
+
+    </div>
+    <footer>
+        <p>&copy; 2024 Página de Animais</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{% extends 'meteo/layout.html' %}
+
+{% block content %}
+<h1>Documentação da API de Meteorologia</h1>
+
+<h2>Endpoints Disponíveis</h2>
+<ul>
+    <li>
+        <strong>Lista de Cidades</strong><br>
+        Método: GET<br>
+        URL: <code>/meteo/api/cidades/</code><br>
+        Descrição: Retorna uma lista de todas as cidades.
+    </li>
+    <li>
+        <strong>Previsão Meteorológica para Hoje</strong><br>
+        Método: GET<br>
+        URL: <code>/meteo/api/previsao_hoje/&lt;cidade_id&gt;/</code><br>
+        Descrição: Retorna a previsão meteorológica para hoje para uma cidade específica.<br>
+        Parâmetros:
+        <ul>
+            <li><code>cidade_id</code> (integer): ID da cidade desejada.</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Previsão Meteorológica para os Próximos 5 Dias</strong><br>
+        Método: GET<br>
+        URL: <code>/meteo/api/previsao_cinco_dias/&lt;cidade_id&gt;/</code><br>
+        Descrição: Retorna a previsão meteorológica para os próximos 5 dias para uma cidade específica.<br>
+        Parâmetros:
+        <ul>
+            <li><code>cidade_id</code> (integer): ID da cidade desejada.</li>
+        </ul>
+    </li>
+</ul>
+
+<h2>Exemplo de Resposta</h2>
+<p>Para o endpoint <code>/meteo/api/previsao_hoje/&lt;cidade_id&gt;/</code>:</p>
+<pre>
+{
+    "forecastDate": "2024-06-10",
+    "tMin": 15.9,
+    "tMax": 23.4,
+    "idWeatherType": 2,
+    "weather_description": "Céu pouco nublado",
+    "icon": "/static/meteo/icons/w_ic_d_02anim.svg"
+}
+</pre>
+
+<p>Para o endpoint <code>/meteo/api/previsao_cinco_dias/&lt;cidade_id&gt;/</code>:</p>
+<pre>
+[
+    {
+        "forecastDate": "2024-06-10",
+        "tMin": 15.9,
+        "tMax": 23.4,
+        "idWeatherType": 2,
+        "weather_description": "Céu pouco nublado",
+        "icon": "/static/meteo/icons/w_ic_d_02anim.svg"
+    },
+    {
+        "forecastDate": "2024-06-11",
+        "tMin": 16.0,
+        "tMax": 24.0,
+        "idWeatherType": 3,
+        "weather_description": "Céu parcialmente nublado",
+        "icon": "/static/meteo/icons/w_ic_d_03anim.svg"
+    }
+    ...
+]
+</pre>
+
+<h2>Testar a API</h2>
+<button onclick="testAPI()">Testar Previsão de Hoje para Lisboa</button>
+<pre id="api-response"></pre>
+
+<script>
+function testAPI() {
+    fetch('/meteo/api/previsao_hoje/1110600/')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('api-response').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            document.getElementById('api-response').textContent = 'Erro ao buscar dados da API: ' + error;
+        });
+}
+</script>
+
+{% endblock %}

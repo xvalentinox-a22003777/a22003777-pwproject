@@ -1,0 +1,182 @@
+[
+    {
+        "titulo": "Ruas Narradas",
+        "banda": "Ritmo Urbano",
+        "ano_lancamento": 2001,
+        "musicas": [
+            {"titulo": "Versos da Vida", "duracao": "3:45"},
+            {"titulo": "Conexão das Ruas", "duracao": "4:10"}
+        ]
+    },
+    {
+        "titulo": "Ecos Noturnos",
+        "banda": "Ritmo Urbano",
+        "ano_lancamento": 2004,
+        "musicas": [
+            {"titulo": "Luzes da Cidade", "duracao": "3:55"},
+            {"titulo": "Sons da Noite", "duracao": "4:00"}
+        ]
+    },
+    {
+        "titulo": "Conexões Globais",
+        "banda": "Flow Masters",
+        "ano_lancamento": 2005,
+        "musicas": [
+            {"titulo": "Rimas sem Fronteiras", "duracao": "3:30"},
+            {"titulo": "Batidas Urbanas", "duracao": "4:20"}
+        ]
+    },
+    {
+        "titulo": "Flow Eterno",
+        "banda": "Flow Masters",
+        "ano_lancamento": 2008,
+        "musicas": [
+            {"titulo": "Palavras Poderosas", "duracao": "3:40"},
+            {"titulo": "Ritmo Infinito", "duracao": "4:05"}
+        ]
+    },
+    {
+        "titulo": "Versos do Oriente",
+        "banda": "Rimas do Leste",
+        "ano_lancamento": 2011,
+        "musicas": [
+            {"titulo": "Ecos do Leste", "duracao": "3:50"},
+            {"titulo": "Rimas Geladas", "duracao": "4:15"}
+        ]
+    },
+    {
+        "titulo": "Poesia Congelada",
+        "banda": "Rimas do Leste",
+        "ano_lancamento": 2013,
+        "musicas": [
+            {"titulo": "Noites Brancas", "duracao": "4:25"},
+            {"titulo": "Versos do Frio", "duracao": "3:35"}
+        ]
+    },
+    {
+        "titulo": "Cantos da Cidade",
+        "banda": "Versos da Cidade",
+        "ano_lancamento": 2006,
+        "musicas": [
+            {"titulo": "Ruas de Pedra", "duracao": "3:45"},
+            {"titulo": "Sons do Porto", "duracao": "4:30"}
+        ]
+    },
+    {
+        "titulo": "Histórias Urbanas",
+        "banda": "Versos da Cidade",
+        "ano_lancamento": 2009,
+        "musicas": [
+            {"titulo": "Luzes e Sombras", "duracao": "4:00"},
+            {"titulo": "Ecos do Tejo", "duracao": "3:55"}
+        ]
+    },
+    {
+        "titulo": "Ritmos de Rua",
+        "banda": "Ecos Urbanos",
+        "ano_lancamento": 2007,
+        "musicas": [
+            {"titulo": "Batidas do Coração", "duracao": "3:50"},
+            {"titulo": "Vozes da Noite", "duracao": "4:20"}
+        ]
+    },
+    {
+        "titulo": "Sinfonia Urbana",
+        "banda": "Ecos Urbanos",
+        "ano_lancamento": 2010,
+        "musicas": [
+            {"titulo": "Melodias da Alma", "duracao": "3:40"},
+            {"titulo": "Ritmos Perdidos", "duracao": "4:10"}
+        ]
+    },
+    {
+        "titulo": "Harmonia da Rua",
+        "banda": "Som da Rua",
+        "ano_lancamento": 2002,
+        "musicas": [
+            {"titulo": "Melodia da Madrugada", "duracao": "3:30"},
+            {"titulo": "Eco das Avenidas", "duracao": "4:05"}
+        ]
+    },
+    {
+        "titulo": "Batidas do Coração",
+        "banda": "Som da Rua",
+        "ano_lancamento": 2005,
+        "musicas": [
+            {"titulo": "Ritmo do Asfalto", "duracao": "4:00"},
+            {"titulo": "Passos na Calçada", "duracao": "3:40"}
+        ]
+    },
+    {
+        "titulo": "Versos Conscientes",
+        "banda": "Beat Consciente",
+        "ano_lancamento": 2006,
+        "musicas": [
+            {"titulo": "Palavras que Curam", "duracao": "4:15"},
+            {"titulo": "Rimas de Sabedoria", "duracao": "3:55"}
+        ]
+    },
+    {
+        "titulo": "Eco das Ruas",
+        "banda": "Beat Consciente",
+        "ano_lancamento": 2009,
+        "musicas": [
+            {"titulo": "Verdades Urbanas", "duracao": "4:10"},
+            {"titulo": "Som da Liberdade", "duracao": "3:35"}
+        ]
+    },
+    {
+        "titulo": "Gritos da Cidade",
+        "banda": "Palavras do Gueto",
+        "ano_lancamento": 2007,
+        "musicas": [
+            {"titulo": "Ecos da Resistência", "duracao": "3:50"},
+            {"titulo": "Vozes do Silêncio", "duracao": "4:20"}
+        ]
+    },
+    {
+        "titulo": "Resistência Sonora",
+        "banda": "Palavras do Gueto",
+        "ano_lancamento": 2010,
+        "musicas": [
+            {"titulo": "Melodias de Luta", "duracao": "3:45"},
+            {"titulo": "Ritmo da Verdade", "duracao": "4:15"}
+        ]
+    },
+    {
+        "titulo": "Harmonia Rebelde",
+        "banda": "Ritmos Rebeldes",
+        "ano_lancamento": 2011,
+        "musicas": [
+            {"titulo": "Canções de Liberdade", "duracao": "4:00"},
+            {"titulo": "Batidas Revolucionárias", "duracao": "3:40"}
+        ]
+    },
+    {
+        "titulo": "Melodias do Oriente",
+        "banda": "Ritmos Rebeldes",
+        "ano_lancamento": 2013,
+        "musicas": [
+            {"titulo": "Ecos Orientais", "duracao": "3:55"},
+            {"titulo": "Ritmos do Amanhã", "duracao": "4:30"}
+        ]
+    },
+    {
+        "titulo": "Sons da Periferia",
+        "banda": "Vozes da Periferia",
+        "ano_lancamento": 2008,
+        "musicas": [
+            {"titulo": "Ritmos Marginais", "duracao": "4:05"},
+            {"titulo": "Versos da Vida", "duracao": "3:50"}
+        ]
+    },
+    {
+        "titulo": "Ecos da Resistência",
+        "banda": "Vozes da Periferia",
+        "ano_lancamento": 2012,
+        "musicas": [
+            {"titulo": "Poesia do Asfalto", "duracao": "3:45"},
+            {"titulo": "Batidas de Esperança", "duracao": "4:20"}
+        ]
+    }
+]

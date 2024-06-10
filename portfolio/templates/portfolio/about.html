@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Mario Valentino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="top-buttons">
+                <div class="dropdown">
+                    <button id="homeBtn" class="top-button pink"><i class="fas fa-home"></i> Home</button>
+                    <div id="homeDropdown" class="dropdown-content">
+                        <a href="{% url 'portfolio:index' %}">Portfolio Home</a>
+                        <a href="{% url 'portfolio:about' %}">About Me</a>
+                        <a href="{% url 'portfolio:about_website' %}">About Website</a>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="{% static 'portfolio/myimage.jpg' %}" alt="Mario Valentino">
+            </div>
+        </div>
+        <div class="content">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>Mario Valentino</h2>
+                    <p>As a student of Informatics and Management, I am deeply passionate about programming, gaming, music, reading, and sports.</p>
+                    <p>I thrive on stepping out of my comfort zone, always seeking new challenges to avoid complacency.</p>
+                    <p>In addition to my academic pursuits, I collect rare sneakers, engage in fascinating projects, and occasionally write about technology and my experiences.</p>
+                    <div class="skills">
+                        <div class="skill">
+                            <div class="skill-name">Java</div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-inner" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">C</div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-inner" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-inner" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Kotlin</div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-inner" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Web Development</div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-inner" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script JavaScript para funcionalidade dos botões
+        document.addEventListener('DOMContentLoaded', function() {
+            var homeBtn = document.getElementById('homeBtn');
+            var projectsBtn = document.getElementById('projectsBtn');
+
+            homeBtn.addEventListener('click', function() {
+                document.getElementById('homeDropdown').classList.toggle('show');
+            });
+
+            projectsBtn.addEventListener('click', function() {
+                document.getElementById('projectsDropdown').classList.toggle('show');
+            });
+        });
+
+        // Fechar dropdowns se o usuário clicar fora deles
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

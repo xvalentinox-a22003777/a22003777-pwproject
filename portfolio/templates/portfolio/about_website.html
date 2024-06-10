@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Website - Mario Valentino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <style>
+        .parallax {
+            background-image: url("{% static 'portfolio/parallax-bg.jpg' %}");
+            height: 50px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content h2, .content h3 {
+            text-align: center;
+        }
+
+        .technologies {
+            margin: 20px 0;
+        }
+
+        .technology-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .technology-list li {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #f5f5f5;
+            border-radius: 20px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .video-container iframe {
+            width: 80%;
+            height: 400px;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="top-buttons">
+                <div class="dropdown">
+                    <button id="homeBtn" class="top-button pink"><i class="fas fa-home"></i> Home</button>
+                    <div id="homeDropdown" class="dropdown-content">
+                        <a href="{% url 'portfolio:index' %}">Portfolio Home</a>
+                        <a href="{% url 'portfolio:about' %}">About Me</a>
+                        <a href="{% url 'portfolio:about_website' %}">About Website</a>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="{% static 'portfolio/myimage.jpg' %}" alt="Mario Valentino">
+            </div>
+        </div>
+        <div class="content">
+            <h2>About This Website</h2>
+            <div class="parallax"></div>
+            <h3>Technologies Used in This Project</h3>
+            <ul class="technology-list">
+                <li>HTML/CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Django</li>
+            </ul>
+
+            <h3>Django Hands-On Video</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/7FSzMJq6LhU" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <h3>Project Walkthrough Video</h3>
+            <div class="video-container">
+                <iframe src="https://youtube.com/embed/Ao_dClLIBZQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script JavaScript para funcionalidade dos botões
+        document.addEventListener('DOMContentLoaded', function() {
+            var homeBtn = document.getElementById('homeBtn');
+            var projectsBtn = document.getElementById('projectsBtn');
+
+            homeBtn.addEventListener('click', function() {
+                document.getElementById('homeDropdown').classList.toggle('show');
+            });
+
+            projectsBtn.addEventListener('click', function() {
+                document.getElementById('projectsDropdown').classList.toggle('show');
+            });
+        });
+
+        // Fechar dropdowns se o usuário clicar fora deles
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

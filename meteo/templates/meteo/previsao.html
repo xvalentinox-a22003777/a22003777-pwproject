@@ -1,0 +1,14 @@
+{% extends 'meteo/layout.html' %}
+
+{% block content %}
+<h1>Previsão Meteorológica</h1>
+<form method="get" action="{% url 'meteo:previsao_5_dias' %}">
+    <label for="city">Selecione a Cidade:</label>
+    <select id="city" name="city_id">
+        {% for city in cities %}
+        <option value="{{ city.globalIdLocal }}">{{ city.local }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Ver Previsão</button>
+</form>
+{% endblock %}

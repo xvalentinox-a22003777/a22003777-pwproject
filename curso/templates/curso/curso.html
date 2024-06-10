@@ -1,0 +1,34 @@
+{% extends 'curso/layout.html' %}
+
+{% block content %}
+<div>
+    <h2>{{ curso.nome }}</h2>
+
+    <div>
+        <h3 class="section-title">Apresentação:</h3>
+        <p>{{ curso.apresentacao| linebreaks }}</p>
+    </div>
+
+    <div>
+        <h3 class="section-title">Objetivos do curso:</h3>
+        <p>{{ curso.objetivos|linebreaks }}</p>
+    </div>
+
+    <div>
+        <h3 class="section-title">Competências:</h3>
+        <p>{{ curso.competencias|linebreaks }}</p>
+    </div>
+
+     {% if perms.curso.change_curso %}
+    <a href="{% url 'curso:edita_curso' curso.id %}">
+        <button>Editar Curso</button>
+    </a>
+    {% endif %}
+    {% if perms.curso.delete_curso %}
+    <form action="{% url 'curso:apaga_curso' curso.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" onclick="return confirm('Tem certeza que deseja apagar este curso?');">Apagar Curso</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

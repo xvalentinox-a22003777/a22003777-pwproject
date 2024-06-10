@@ -1,0 +1,10 @@
+{% extends 'artigos/layout.html' %}
+
+{% block content %}
+<h2>Novo Artigo</h2>
+<form action="{% url 'artigos:novo_artigo' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar Artigo</button>
+</form>
+{% endblock %}

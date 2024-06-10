@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block title %}Editar Curso{% endblock %}
+
+{% block content %}
+<h2>Editar Curso</h2>
+<form action="{% url 'curso:edita_curso' curso.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar Alterações</button>
+</form>
+{% endblock %}

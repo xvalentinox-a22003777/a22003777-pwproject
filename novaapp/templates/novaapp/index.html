@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Animais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .animal {
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            width: 200px;
+        }
+        .animal img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+
+    <nav>
+        <a href="{% url 'novaapp:index' %}">Introducao</a>
+        <a href="{% url 'novaapp:info' %}">Info</a>
+        <a href="{% url 'novaapp:contacto' %}">Contacto</a>
+    </nav>
+</head>
+<body>
+    <h1>Bem-vindo à Página de Animais</h1>
+    <div class="container">
+        <div class="animal">
+            <img src="https://cdn.britannica.com/44/186844-050-091E4372/Scottish-fold-cat.jpg" alt="Gato">
+            <h2>Gato</h2>
+            <p>O gato é um animal doméstico muito popular.</p>
+        </div>
+        <div class="animal">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.e-konomista.pt%2Fuploads%2F2018%2F09%2Fcao-a-correr.jpg&f=1&nofb=1&ipt=2280d1580392f3e002b7c3a7edecbb64fc5ee89f7f7a4b42f0d669972146085d&ipo=images" alt="Cachorro">
+            <h2>Cão</h2>
+            <p>Conhecido como o melhor amigo do homem.</p>
+        </div>
+
+    </div>
+    <footer>
+        <p>&copy; 2024 Página de Animais</p>
+    </footer>
+</body>
+</html>

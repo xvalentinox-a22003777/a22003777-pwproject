@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Valentino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="top-buttons">
+                <div class="dropdown">
+                    <button id="homeBtn" class="top-button pink"><i class="fas fa-home"></i> Home</button>
+                    <div id="homeDropdown" class="dropdown-content">
+                        <a href="{% url 'portfolio:index' %}">Portfolio Home</a>
+                        <a href="{% url 'portfolio:about' %}">About Me</a>
+                        <a href="{% url 'portfolio:about_website' %}">About Website</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button id="projectsBtn" class="top-button green"><i class="fas fa-folder"></i> Projects</button>
+                    <div id="projectsDropdown" class="dropdown-content">
+                        {% for project in projects %}
+                            <a href="{{ project.link }}">{{ project.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="intro">
+                <h1>Mario Valentino</h1>
+                <h3>Aspiring Business Strategist <span class="rotating-plus">+</span> Developer <span class="rotating-plus">+</span> Programmer</h3>
+                <p>👋 Hey there! I'm Mario Valentino, a student passionate about development, programming, and business strategy.</p>
+                <p> My journey begins with <span class="highlight green">\Inspiration</span>, leads to <span class="highlight blue">\Creation</span>, and culminates in <span class="highlight red">\Fruition</span></p>
+                <div class="filters">
+                    {% for technology in technologies %}
+                        <label>
+                            <input type="checkbox" class="filter-checkbox" value="{{ technology.name }}"> {{ technology.name }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="bottom-buttons">
+                <a href="{% url 'portfolio:about' %}" class="bottom-button"><i class="fas fa-info-circle"></i> About</a>
+                <a href="{% url 'portfolio:about_website' %}" class="bottom-button"><i class="fa-solid fa-stairs"></i> Website</a>
+            </div>
+            <div class="effects">
+                <button id="darkModeToggle" class="effect-button"><i class="fas fa-moon"></i></button>
+                <div id="clock" class="clock"></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="projects" id="projects-list">
+                {% for project in projects %}
+                    <div class="project" data-technologies="{{ project.technologies.all|join:' ' }}">
+                        <div class="project-header">
+                            <span>{{ project.technologies.all|join:', ' }}</span>
+                        </div>
+                        <div class="project-content">
+                            <h2>{{ project.title }}</h2>
+                            <p>{{ project.description }}</p>
+                            <a href="{{ project.link }}" class="view-btn">View</a>
+                            <img src="{{ project.icon.url }}" alt="{{ project.title }} icon">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script JavaScript para funcionalidade dos botões
+        document.addEventListener('DOMContentLoaded', function() {
+            var homeBtn = document.getElementById('homeBtn');
+            var projectsBtn = document.getElementById('projectsBtn');
+
+            homeBtn.addEventListener('click', function() {
+                document.getElementById('homeDropdown').classList.toggle('show');
+            });
+
+            projectsBtn.addEventListener('click', function() {
+                document.getElementById('projectsDropdown').classList.toggle('show');
+            });
+        });
+
+        // Fechar dropdowns se o usuário clicar fora deles
+        window.onclick = function(event) {
+            if (!event.target.matches('.top-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Digital Clock
+        function updateClock() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = now.toLocaleDateString(undefined, options);
+            const timeStr = now.toLocaleTimeString();
+            document.getElementById('clock').innerHTML = `${dateStr} ${timeStr}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call
+
+        // Filter projects by technology
+        const checkboxes = document.querySelectorAll('.filter-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', filterProjects);
+        });
+
+        function filterProjects() {
+            const selectedTechs = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value.toLowerCase());
+            const projects = document.querySelectorAll('.project');
+
+            projects.forEach(project => {
+                const projectTechs = project.dataset.technologies.toLowerCase().split(' ');
+                const isVisible = selectedTechs.length === 0 || selectedTechs.some(tech => projectTechs.includes(tech));
+                project.style.display = isVisible ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

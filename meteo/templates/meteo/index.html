@@ -1,0 +1,19 @@
+{% extends 'meteo/layout.html' %}
+
+{% block content %}
+<div class="title">
+    <h1>Previsão Meteorológica para Hoje</h1>
+</div>
+<div class="forecast-container">
+    <div class="forecast-details">
+        <h2>{{ city }}</h2>
+        <p><strong>Data:</strong> {{ date }}</p>
+        <p><strong>Temperatura Mínima:</strong> {{ min_temp }}°C</p>
+        <p><strong>Temperatura Máxima:</strong> {{ max_temp }}°C</p>
+        <p><strong>Descrição:</strong> {{ weather_description }}</p>
+    </div>
+    <div >
+        <img src="/static/meteo/icons/w_ic_d_{{ weather_type_id|stringformat:"02d" }}anim.svg" alt="{{ weather_description }}">
+    </div>
+</div>
+{% endblock %}

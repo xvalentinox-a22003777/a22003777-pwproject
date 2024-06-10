@@ -1,0 +1,26 @@
+{% extends 'artigos/layout.html' %}
+
+{% block content %}
+<h2>Lista de Artigos</h2>
+
+<div class="button-container">
+   {% if perms.artigos.add_artigo %}
+    <a href="{% url 'artigos:novo_artigo' %}">
+        <button>Adicionar Novo Artigo</button>
+    </a>
+    {% endif %}
+</div>
+
+<div class="articles">
+    {% for artigo in artigos %}
+    <div class="article">
+        <h3><a href="{% url 'artigos:artigo' artigo.id %}">{{ artigo.titulo }}</a></h3>
+        {% if artigo.imagem %}
+            <img src="{{ artigo.imagem.url }}" alt="{{ artigo.titulo }}" style="width:100%; max-width: 250px;">
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

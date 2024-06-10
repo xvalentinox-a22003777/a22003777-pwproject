@@ -1,0 +1,52 @@
+[
+    {
+        "nome": "Ritmo Urbano",
+        "nacionalidade": "Brasil",
+        "ano_criacao": 1998
+    },
+    {
+        "nome": "Flow Masters",
+        "nacionalidade": "Estados Unidos",
+        "ano_criacao": 2003
+    },
+    {
+        "nome": "Rimas do Leste",
+        "nacionalidade": "Rússia",
+        "ano_criacao": 2006
+    },
+    {
+        "nome": "Versos da Cidade",
+        "nacionalidade": "Portugal",
+        "ano_criacao": 2000
+    },
+    {
+        "nome": "Ecos Urbanos",
+        "nacionalidade": "França",
+        "ano_criacao": 1995
+    },
+    {
+        "nome": "Som da Rua",
+        "nacionalidade": "Brasil",
+        "ano_criacao": 1999
+    },
+    {
+        "nome": "Beat Consciente",
+        "nacionalidade": "Reino Unido",
+        "ano_criacao": 2004
+    },
+    {
+        "nome": "Palavras do Gueto",
+        "nacionalidade": "África do Sul",
+        "ano_criacao": 2001
+    },
+    {
+        "nome": "Ritmos Rebeldes",
+        "nacionalidade": "Japão",
+        "ano_criacao": 2007
+    },
+    {
+        "nome": "Vozes da Periferia",
+        "nacionalidade": "Espanha",
+        "ano_criacao": 2005
+    }
+]

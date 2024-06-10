@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block title %}Nova Banda{% endblock %}
+
+{% block content %}
+<h2>Nova Banda</h2>
+<form action="{% url 'bandas:nova_banda' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar Banda</button>
+</form>
+{% endblock %}

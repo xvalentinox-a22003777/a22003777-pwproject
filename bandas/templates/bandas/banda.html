@@ -1,0 +1,46 @@
+{% extends 'bandas/layout.html' %}
+
+{% block content %}
+<div class="banda-details">
+    <h2>{{ banda.nome }}</h2>
+    {% if banda.foto %}
+        <img src="{{ banda.foto.url }}" alt="Foto de {{ banda.nome }}">
+    {% endif %}
+    <p>{{ banda.info }}</p>
+
+    {% if perms.bandas.change_banda or perms.bandas.delete_banda %}
+    <div class="banda-actions">
+        {% if perms.bandas.change_banda %}
+        <a href="{% url 'bandas:edita_banda' banda.id %}">
+            <button>Editar Banda</button>
+        </a>
+        {% endif %}
+        {% if perms.bandas.delete_banda %}
+        <form action="{% url 'bandas:apaga_banda' banda.id %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" onclick="return confirm('Tem certeza que deseja apagar esta banda?');">Apagar Banda</button>
+        </form>
+        {% endif %}
+        {% if perms.bandas.add_album %}
+        <a href="{% url 'bandas:novo_album' banda.id %}">
+            <button>Adicionar Novo Álbum</button>
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <p class="biography">{{ banda.biografia|linebreaks }}</p>
+
+    <h3>Lista de Álbuns:</h3>
+    <div class="album-list">
+        {% for album in banda.albuns.all %}
+            <div class="album-item">
+                <h4><a href="{% url 'bandas:album' album.id %}">{{ album.titulo }}</a></h4>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<a href="{% url 'bandas:index' %}" class="return-link">◀ Voltar para Todas as Bandas</a>
+
+{% endblock %}

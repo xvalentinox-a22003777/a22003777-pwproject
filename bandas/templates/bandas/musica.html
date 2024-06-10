@@ -1,0 +1,37 @@
+{% extends 'bandas/layout.html' %}
+
+{% block content %}
+<div class="musica-details">
+    <h2>{{ musica.titulo }}</h2>
+    <p>Duração: {{ musica.duracao }}</p>
+    {% if musica.link %}
+        <p><a href="{{ musica.link }}"> Ouvir Agora</a></p>
+    {% else %}
+        <p>Link para a música não existe.</p>
+    {% endif %}
+
+    {% if musica.letra %}
+        <h3>Letra:</h3>
+        <p>{{ musica.letra|linebreaks }}</p>
+    {% endif %}
+
+   {% if perms.bandas.change_musica or perms.bandas.delete_musica %}
+    <div class="musica-actions">
+        {% if perms.bandas.change_musica %}
+        <a href="{% url 'bandas:edita_musica' musica.id %}">
+            <button>Editar Música</button>
+        </a>
+        {% endif %}
+        {% if perms.bandas.delete_musica %}
+        <form action="{% url 'bandas:apaga_musica' musica.id %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" onclick="return confirm('Tem certeza que deseja apagar esta música?');">Apagar Música</button>
+        </form>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+<a href="{% url 'bandas:album' musica.album.id %}" class="return-link">◀Voltar para o Álbum</a>
+
+{% endblock %}

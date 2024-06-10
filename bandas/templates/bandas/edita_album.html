@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block title %}Editar Álbum{% endblock %}
+
+{% block content %}
+<h2>Editar Álbum</h2>
+<form action="{% url 'bandas:edita_album' album.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar Alterações</button>
+</form>
+{% endblock %}

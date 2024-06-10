@@ -1,0 +1,83 @@
+{% extends 'curso/layout.html' %}
+
+{% block content %}
+
+<div>
+    {% for curso in cursos %}
+        <div class="course-item">
+            <h2><a href="{% url 'curso:curso' curso.id %}" class="course-link">{{ curso.nome }}</a></h2>
+            <p>{{ curso.apresentacao| linebreaks }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+<div>
+    <h2>Disciplinas</h2>
+
+    {% for ano, disciplinas in disciplinas_por_ano.items %}
+        <button class="collapsible">{{ ano }}º Ano</button>
+        <div class="content">
+            {% for disciplina in disciplinas %}
+                <div class="discipline-item">
+                    <li><a href="{% url 'curso:disciplina' disciplina.id %}">{{ disciplina.nome }}</a></li>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
+
+<div class="project-list">
+    <h3>Projetos</h3>
+    <div class="projects-grid">
+        {% for projeto in projetos %}
+            <div class="project-item">
+                <a href="{% url 'curso:projeto' projeto.id %}">
+                    {% if projeto.imagem %}
+                        <img src="{{ projeto.imagem.url }}" alt="{{ projeto.nome }}">
+                    {% else %}
+                        <div class="no-image">Sem Imagem</div>
+                    {% endif %}
+                    <div class="project-name">{{ projeto.nome }}</div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div>
+    {% if perms.curso.add_curso %}
+    <a href="{% url 'curso:novo_curso' %}">
+        <button>Adicionar Novo Curso</button>
+    </a>
+    {% endif %}
+    {% if perms.curso.add_disciplina %}
+    <a href="{% url 'curso:nova_disciplina' %}">
+        <button>Adicionar Nova Disciplina</button>
+    </a>
+    {% endif %}
+    {% if perms.curso.add_projeto %}
+    <a href="{% url 'curso:novo_projeto' %}">
+        <button>Adicionar Novo Projeto</button>
+    </a>
+    {% endif %}
+</div>
+
+
+{% endblock %}

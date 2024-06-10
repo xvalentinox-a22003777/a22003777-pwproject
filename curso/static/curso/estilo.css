@@ -1,0 +1,225 @@
+body {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #004080;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #004080;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    color: #004080;
+}
+
+.course-item {
+    margin-bottom: 20px;
+}
+
+.course-link {
+    text-decoration: none;
+    color: #004080;
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.course-link:hover {
+    color: #002060;
+    text-decoration: underline;
+}
+
+.discipline-list, .project-list {
+    margin-bottom: 20px;
+}
+
+.course-item, .discipline-item, .project-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.course-item:last-child, .discipline-item:last-child, .project-item:last-child {
+    border-bottom: none;
+}
+
+.course-item a, .discipline-item a, .project-item a {
+    text-decoration: none;
+    color: #004080;
+    font-weight: bold;
+}
+
+.course-item a:hover, .discipline-item a:hover, .project-item a:hover {
+    text-decoration: underline;
+}
+
+.collapsible {
+    background-color: #f1f1f1;
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+.collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.disciplina-detail {
+    margin-top: 20px;
+}
+
+.disciplina-detail h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.disciplina-detail h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.disciplina-detail p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.disciplina-detail .section-title {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.disciplina-detail ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.disciplina-detail ul li {
+    background-color: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.disciplina-detail ul li a {
+    text-decoration: none;
+    color: #004080;
+    font-weight: bold;
+}
+
+.disciplina-detail ul li a:hover {
+    text-decoration: underline;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.project-item {
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+}
+
+.project-item .project-name {
+    padding: 10px;
+    font-weight: bold;
+    color: #004080;
+}
+
+.project-item .no-image {
+    width: 100%;
+    padding: 50% 0;
+    background-color: #f0f0f0;
+    color: #888;
+    font-size: 14px;
+}
+
+ .section-title {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.projeto-detail img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #f4f4f4;
+}
+
+.projeto-detail iframe {
+    margin-top: 10px;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.projeto-detail p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}

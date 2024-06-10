@@ -1,0 +1,55 @@
+{% extends 'curso/layout.html' %}
+
+{% block content %}
+<div class="projeto-detail">
+    <h2>{{ projeto.nome }}</h2>
+
+    <div>
+        <h3 class="section-title">Descrição:</h3>
+        <p>{{ projeto.descricao|linebreaks }}</p>
+    </div>
+
+    <div>
+        <h3 class="section-title">Conceitos Aplicados:</h3>
+        <p>{{ projeto.conceitos_aplicados|linebreaks }}</p>
+    </div>
+
+    <div>
+        <h3 class="section-title">Tecnologias Usadas:</h3>
+        <p>{{ projeto.tecnologias_usadas|linebreaks }}</p>
+    </div>
+
+    {% if projeto.imagem %}
+        <div>
+            <h3 class="section-title">Imagem:</h3>
+            <img src="{{ projeto.imagem.url }}" alt="{{ projeto.nome }}">
+        </div>
+    {% endif %}
+
+    {% if projeto.video_youtube %}
+        <div>
+            <h3 class="section-title">Vídeo:</h3>
+            <iframe width="560" height="315" src="{{ projeto.video_youtube|safe }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    {% endif %}
+
+    {% if projeto.repositorio_github %}
+        <div>
+            <h3 class="section-title">Repositório GitHub:</h3>
+            <p><a href="{{ projeto.repositorio_github }}" target="_blank">{{ projeto.repositorio_github }}</a></p>
+        </div>
+    {% endif %}
+
+    {% if perms.curso.change_projeto %}
+    <a href="{% url 'curso:edita_projeto' projeto.id %}">
+        <button>Editar Projeto</button>
+    </a>
+    {% endif %}
+    {% if perms.curso.delete_projeto %}
+    <form action="{% url 'curso:apaga_projeto' projeto.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" onclick="return confirm('Tem certeza que deseja apagar este projeto?');">Apagar Projeto</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

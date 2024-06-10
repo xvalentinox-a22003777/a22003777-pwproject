@@ -1,0 +1,126 @@
+[
+    {
+        "area_cientifica": "Matemáticas e Físicas",
+        "disciplina": "Investigação Operacional"
+    },
+    {
+        "area_cientifica": "Matemáticas e Físicas",
+        "disciplina": "Matemática I"
+    },
+    {
+        "area_cientifica": "Matemáticas e Físicas",
+        "disciplina": "Matemática II"
+    },
+    {
+        "area_cientifica": "Matemáticas e Físicas",
+        "disciplina": "Métricas Empresariais"
+    },
+    {
+        "area_cientifica": "Arquiteturas e Sistemas Operativos",
+        "disciplina": "Sistemas Operativos"
+    },
+    {
+        "area_cientifica": "Redes e Telecomunicações",
+        "disciplina": "Redes de Computadores"
+    },
+    {
+        "area_cientifica": "Programação e Engenharia de SW",
+        "disciplina": "Algoritmia e Estruturas de Dados"
+    },
+    {
+        "area_cientifica": "Programação e Engenharia de SW",
+        "disciplina": "Engenharia de Software"
+    },
+    {
+        "area_cientifica": "Programação e Engenharia de SW",
+        "disciplina": "Fundamentos de Programação"
+    },
+    {
+        "area_cientifica": "Programação e Engenharia de SW",
+        "disciplina": "Linguagens de Programação I"
+    },
+    {
+        "area_cientifica": "Programação e Engenharia de SW",
+        "disciplina": "Linguagens de Programação II"
+    },
+    {
+        "area_cientifica": "Programação e Engenharia de SW",
+        "disciplina": "Programação Web"
+    },
+    {
+        "area_cientifica": "Programação e Engenharia de SW",
+        "disciplina": "Sistemas de Informação na Nuvem"
+    },
+    {
+        "area_cientifica": "Programação e Engenharia de SW",
+        "disciplina": "Sistemas Móveis Empresariais"
+    },
+    {
+        "area_cientifica": "Sistemas de Informação",
+        "disciplina": "Bases de Dados"
+    },
+    {
+        "area_cientifica": "Sistemas de Informação",
+        "disciplina": "Engenharia de Requisitos e Testes"
+    },
+    {
+        "area_cientifica": "Sistemas de Informação",
+        "disciplina": "Fundamentos de Sistemas de Informação"
+    },
+    {
+        "area_cientifica": "Interação Humano-Máquina",
+        "disciplina": "Interação Humano-Máquina"
+    },
+    {
+        "area_cientifica": "Dados e Inteligência Artificial",
+        "disciplina": "Data Mining"
+    },
+    {
+        "area_cientifica": "Dados e Inteligência Artificial",
+        "disciplina": "Inteligência Artificial"
+    },
+    {
+        "area_cientifica": "Dados e Inteligência Artificial",
+        "disciplina": "Sistemas de Suporte à Decisão"
+    },
+    {
+        "area_cientifica": "Gestão e Softskills",
+        "disciplina": "Auditoria de Sistemas de Informação"
+    },
+    {
+        "area_cientifica": "Gestão e Softskills",
+        "disciplina": "Cálculo Financeiro"
+    },
+    {
+        "area_cientifica": "Gestão e Softskills",
+        "disciplina": "Competências Comportamentais"
+    },
+    {
+        "area_cientifica": "Gestão e Softskills",
+        "disciplina": "Contabilidade"
+    },
+    {
+        "area_cientifica": "Gestão e Softskills",
+        "disciplina": "Controlo de Gestão"
+    },
+    {
+        "area_cientifica": "Gestão e Softskills",
+        "disciplina": "Gestão Financeira"
+    },
+    {
+        "area_cientifica": "Gestão e Softskills",
+        "disciplina": "Instrumentos de Gestão"
+    },
+    {
+        "area_cientifica": "Gestão e Softskills",
+        "disciplina": "Motivação e Liderança"
+    },
+    {
+        "area_cientifica": "Gestão e Softskills",
+        "disciplina": "Teoria e Prática de Marketing"
+    },
+    {
+        "area_cientifica": "Genérica",
+        "disciplina": "Trabalho Final de Curso"
+    }
+]

@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block title %}Nova Música{% endblock %}
+
+{% block content %}
+<h2>Nova Música</h2>
+<form action="{% url 'bandas:nova_musica' album.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar Música</button>
+</form>
+{% endblock %}

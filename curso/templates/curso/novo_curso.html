@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block title %}Novo Curso{% endblock %}
+
+{% block content %}
+<h2>Novo Curso</h2>
+<form action="{% url 'curso:novo_curso' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar Curso</button>
+</form>
+{% endblock %}

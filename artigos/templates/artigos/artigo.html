@@ -1,0 +1,74 @@
+{% extends 'artigos/layout.html' %}
+
+{% block content %}
+<nav class="article-nav">
+    <a href="{% url 'artigos:index' %}">&larr; Lista de Artigos</a>
+</nav>
+<div class="article-detail">
+    <h2>{{ artigo.titulo }}</h2>
+    <div class="article-header">
+        {% if artigo.imagem %}
+            <div class="article-image-info">
+                <img src="{{ artigo.imagem.url }}" alt="{{ artigo.titulo }}" class="article-image">
+                <div class="article-info">
+                    <p><strong>Autor:</strong> {{ artigo.autor.username }}</p>
+                    <p><strong>Publicado em:</strong> {{ artigo.data_publicacao }}</p>
+                    {% if pontuacao %}
+                        <p><strong>Pontuação:</strong> {{ pontuacao }}/5</p>
+                    {% else %}
+                        <p><strong>Pontuação:</strong> Sem Pontuações</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+        <div class="article-content">
+            {{ artigo.conteudo|linebreaks }}
+        </div>
+    </div>
+
+     {% if perms.artigos.change_artigo or perms.artigos.delete_artigo %}
+    <div class="article-actions">
+        {% if perms.artigos.change_artigo %}
+        <a href="{% url 'artigos:edita_artigo' artigo.id %}">
+            <button>Editar Artigo</button>
+        </a>
+        {% endif %}
+        {% if perms.artigos.delete_artigo %}
+        <form action="{% url 'artigos:apaga_artigo' artigo.id %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" onclick="return confirm('Tem certeza que deseja apagar este artigo?');">Apagar Artigo</button>
+        </form>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="article-comments">
+        <h3>Comentários</h3>
+        {% for comentario in comentarios %}
+            <div class="comment">
+                <p><strong>{{ comentario.autor }}</strong> ({{ comentario.data_publicacao }})</p>
+                <p>{{ comentario.conteudo }}</p>
+                {% if perms.artigos.delete_comentario %}
+                <form action="{% url 'artigos:apaga_comentario' comentario.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" onclick="return confirm('Tem certeza que deseja apagar este comentário?');">Apagar Comentário</button>
+                </form>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>Nenhum comentário ainda.</p>
+        {% endfor %}
+    </div>
+
+    {% if perms.artigos.add_comentario %}
+    <div class="comment-form">
+        <h3>Adicionar Comentário</h3>
+        <form action="{% url 'artigos:artigo' artigo.id %}" method="post">
+            {% csrf_token %}
+            {{ comentario_form.as_p }}
+            <button type="submit">Enviar Comentário</button>
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

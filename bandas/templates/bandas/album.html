@@ -1,0 +1,48 @@
+{% extends 'bandas/layout.html' %}
+
+{% block content %}
+<div class="album-details">
+    <h2>{{ album.titulo }}</h2>
+    {% if album.capa %}
+        <img src="{{ album.capa.url }}" alt="Capa do álbum {{ album.titulo }}">
+    {% endif %}
+
+    <p>Ano de Lançamento: {{ album.ano_lancamento }}</p>
+
+    {% if perms.bandas.change_album or perms.bandas.delete_album %}
+    <div class="album-actions">
+        {% if perms.bandas.change_album %}
+        <a href="{% url 'bandas:edita_album' album.id %}">
+            <button>Editar Álbum</button>
+        </a>
+        {% endif %}
+        {% if perms.bandas.delete_album %}
+        <form action="{% url 'bandas:apaga_album' album.id %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" onclick="return confirm('Tem certeza que deseja apagar este álbum?');">Apagar Álbum</button>
+        </form>
+        {% endif %}
+        {% if perms.bandas.add_musica %}
+        <a href="{% url 'bandas:nova_musica' album.id %}">
+            <button>Adicionar Nova Música</button>
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <h3>Lista de Músicas:</h3>
+    <ul>
+        {% for musica in album.musicas.all %}
+            <li>
+                <a href="{% url 'bandas:musica' musica.id %}">{{ musica.titulo }}</a>
+                {% if musica.letra %}
+                    <i class="fa-solid fa-music"></i>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<a href="{% url 'bandas:banda' album.banda.id %}" class="return-link"> Voltar para a Banda</a>
+
+{% endblock %}

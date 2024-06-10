@@ -1,0 +1,48 @@
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Bandas{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'bandas/estilo.css' %}">
+        {% block style %}{% endblock %}
+
+        <!-- Fonte Google -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&display=swap" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/5d1319edfb.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <h1> Bandas </h1>
+            <nav>
+            {% if user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout">Logout</button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}">
+                <button>Login</button>
+            </a>
+            {% endif %}
+        </nav>
+        </header>
+
+        <main>
+
+            {% block content %}
+            {% endblock %}
+
+        </main>
+
+        <footer>
+        <div >
+            <p>Universidade Lusófona</p>
+        </div>
+    </footer>
+    </body>
+</html>

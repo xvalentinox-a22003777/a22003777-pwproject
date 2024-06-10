@@ -1,0 +1,10 @@
+{% extends 'artigos/layout.html' %}
+
+{% block content %}
+<h2>Editar Artigo</h2>
+<form action="{% url 'artigos:edita_artigo' artigo.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar Alterações</button>
+</form>
+{% endblock %}

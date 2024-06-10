@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Valentino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="top-buttons">
+                <button id="nameBtn" class="top-button pink"><i class="fas fa-home"></i>  Home <span>&#x25BC;</span></button>
+                <button id="projectsBtn" class="top-button green"><i class="fas fa-folder"></i> Projects <span>&#x25BC;</span></button>
+            </div>
+            <div class="intro">
+                <h1>Mario Valentino</h1>
+                <h3>Aspiring Business Strategist <span class="rotating-plus">+</span> Developer <span class="rotating-plus">+</span> Programmer</h3>
+                <p>👋 Hey there! I'm Mario Valentino, a student passionate about development, programming, and business strategy.</p>
+                <p> My journey begins with <span class="highlight green">\Inspiration</span>, leads to <span class="highlight blue">\Creation</span>, and culminates in <span class="highlight red">\Fruition</span></p>
+                <div class="filters">
+                    <label><input type="checkbox"> Java</label>
+                    <label><input type="checkbox"> Kotlin</label>
+                    <label><input type="checkbox"> C</label>
+                    <label><input type="checkbox"> Python</label>
+                    <label><input type="checkbox"> Django</label>
+                    <label><input type="checkbox"> SQL</label>
+                    <label><input type="checkbox"> UI/UX</label>
+                    <label><input type="checkbox"> Web Development</label>
+                </div>
+            </div>
+            <div class="bottom-buttons">
+                <a href="#" class="bottom-button"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#" class="bottom-button"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+
+            <div class="effects">
+                <button id="darkModeToggle" class="effect-button"><i class="fas fa-moon"></i></button>
+                <div id="clock" class="clock"></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="projects">
+                <div class="project">
+                    <div class="project-header">
+                        <span>Web Development</span>
+                    </div>
+                    <div class="project-content">
+                        <h2>Meteorologia</h2>
+                        <p>App with API to current weather</p>
+                        <a href="#" class="view-btn">View</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-header">
+                        <span>Mobile App</span>
+                    </div>
+                    <div class="project-content">
+                        <h2>Task Manager</h2>
+                        <p>App for managing tasks and productivity</p>
+                        <a href="#" class="view-btn">View</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-header">
+                        <span>Data Analysis</span>
+                    </div>
+                    <div class="project-content">
+                        <h2>Data Visualizer</h2>
+                        <p>Tool for visualizing data trends and patterns</p>
+                        <a href="#" class="view-btn">View</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-header">
+                        <span>Machine Learning</span>
+                    </div>
+                    <div class="project-content">
+                        <h2>Predictive Analytics</h2>
+                        <p>System for predictive analysis using ML algorithms</p>
+                        <a href="#" class="view-btn">View</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-header">
+                        <span>Web Design</span>
+                    </div>
+                    <div class="project-content">
+                        <h2>Portfolio Site</h2>
+                        <p>Personal portfolio website design and development</p>
+                        <a href="#" class="view-btn">View</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-header">
+                        <span>Game Development</span>
+                    </div>
+                    <div class="project-content">
+                        <h2>Adventure Game</h2>
+                        <p>2D adventure game with rich storytelling</p>
+                        <a href="#" class="view-btn">View</a>
+                    </div>
+                </div>
+                <!-- Add more projects here as needed -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('nameBtn').addEventListener('click', function() {
+            alert('Name: Mario Valentino');
+        });
+
+        document.getElementById('projectsBtn').addEventListener('click', function() {
+            alert('Projects: Here is the list of projects...');
+        });
+    </script>
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Digital Clock
+        function updateClock() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = now.toLocaleDateString(undefined, options);
+            const timeStr = now.toLocaleTimeString();
+            document.getElementById('clock').innerHTML = `${dateStr} ${timeStr}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call
+    </script>
+
+</body>
+</html>

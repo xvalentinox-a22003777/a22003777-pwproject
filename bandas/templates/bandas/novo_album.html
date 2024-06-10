@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block title %}Novo Álbum{% endblock %}
+
+{% block content %}
+<h2>Novo Álbum</h2>
+<form action="{% url 'bandas:novo_album' banda.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar Álbum</button>
+</form>
+{% endblock %}

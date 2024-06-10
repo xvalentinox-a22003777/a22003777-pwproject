@@ -1,0 +1,27 @@
+{% extends 'bandas/layout.html' %}
+
+{% block content %}
+<h2 class="title">Lista de Bandas</h2>
+
+<div class="button-container">
+    {% if perms.bandas.add_banda %}
+    <a href="{% url 'bandas:nova_banda' %}">
+        <button>Adicionar Nova Banda</button>
+    </a>
+    {% endif %}
+</div>
+
+<div class="banda-list">
+    {% for banda in bandas %}
+    <div class="banda-item">
+        {% if banda.foto %}
+            <img src="{{ banda.foto.url }}" alt="Foto de {{ banda.nome }}">
+        {% endif %}
+        <div class="banda-name">
+            <a href="{% url 'bandas:banda' banda.id %}">{{ banda.nome }}</a>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
